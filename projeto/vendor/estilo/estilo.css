@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    background: linear-gradient(to right, #85f58e, #7ad4ff);
+    font-family: 'Roboto', sans-serif;
+}
+
+.bg-dark {
+    background: linear-gradient(to right, #63b76f, #5b96d6); /* Gradiente mais escuro */
+    color: #fff; /* Cor do texto, se necessário */
+}
+
+.bg-dark a {
+    color: #fff; /* Cor dos links */
+}
+
+.bg-dark a:hover {
+    color: #ffdd00; /* Cor ao passar o mouse sobre os links */
+}
+
+.btn-dark:hover {
+    background-color: #b8d29f; /* Cor um pouco mais clara ao passar o mouse */
+    color: #fff;
+    border-color: #b8d29f; /* Cor um pouco mais clara */
+}
+
+.btn-dark {
+    background-color: #85b5e2; /* Cor um pouco mais clara */
+    border-color: #85b5e2; /* Cor um pouco mais clara */
+}
+
+/* Estilo do card */
+.card {
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 12px; /* Borda arredondada para um visual mais suave */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilo do formulário dentro do card */
+.card form {
+    padding: 20px;
+}
+
+/* Estilo do título do card */
+.card-title {
+    font-size: 1.8em;
+}
+
+/* Estilo para a linha abaixo do título */
+.card-title.border-bottom {
+    border-color: #008bff; /* Cor azul para a linha */
+}
+
+/* Estilo para o botão de entrada */
+.btn-dark {
+    width: 100%;
+}
