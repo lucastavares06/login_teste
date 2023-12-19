@@ -9,11 +9,9 @@ session_start();
 <html lang="pt-br">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="vendor/estilo/estilo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -48,7 +46,6 @@ session_start();
         <?php include 'route/route.php'; ?>
     </div>
 
-    <!-- Bootstrap JavaScript (popper.js is no longer required in Bootstrap 5) -->
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
