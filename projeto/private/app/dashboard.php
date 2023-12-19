@@ -20,11 +20,9 @@ $usuarioEmail = $_SESSION['usuario_email'];
 <html lang="pt-br">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../vendor/estilo/estilo.css">
 
@@ -58,7 +56,6 @@ $usuarioEmail = $_SESSION['usuario_email'];
         <?php include '../private_route/private_route.php'; ?>
     </div>
 
-    <!-- Bootstrap JavaScript (popper.js is no longer required in Bootstrap 5) -->
     <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
