@@ -1,63 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+:root {
+    --primary-color: #9b59b6;
+    --secondary-color: #e67e22;
+    --dark-primary: #8e44ad;
+    --dark-secondary: #d35400;
+    --text-light: #ecf0f1;
+    --link-hover-color: #3498db;
+    --btn-bg: #2c3e50;
+    --btn-hover-bg: #34495e;
+    --btn-border: #2c3e50;
+    --btn-hover-border: #34495e;
+    --card-border: #95a5a6;
+    --card-box-shadow: rgba(0, 0, 0, 0.1);
+    --card-title-border: #e74c3c;
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 body {
-    background: linear-gradient(to right, #85f58e, #7ad4ff);
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
     font-family: 'Roboto', sans-serif;
 }
 
 .bg-dark {
-    background: linear-gradient(to right, #63b76f, #5b96d6); /* Gradiente mais escuro */
-    color: #fff; /* Cor do texto, se necessário */
+    background: linear-gradient(to right, var(--dark-primary), var(--dark-secondary));
+    color: var(--text-light);
 }
 
 .bg-dark a {
-    color: #fff; /* Cor dos links */
+    color: var(--text-light);
 }
 
 .bg-dark a:hover {
-    color: #ffdd00; /* Cor ao passar o mouse sobre os links */
-}
-
-.btn-dark:hover {
-    background-color: #b8d29f; /* Cor um pouco mais clara ao passar o mouse */
-    color: #fff;
-    border-color: #b8d29f; /* Cor um pouco mais clara */
+    color: var(--link-hover-color);
 }
 
 .btn-dark {
-    background-color: #85b5e2; /* Cor um pouco mais clara */
-    border-color: #85b5e2; /* Cor um pouco mais clara */
+    width: 100%;
+    padding: 10px;
+    background-color: var(--btn-bg);
+    border: 1px solid var(--btn-border);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Estilo do card */
+.btn-dark:hover {
+    background-color: var(--btn-hover-bg);
+    border-color: var(--btn-hover-border);
+}
+
+.btn-dark:active,
+.btn-dark:focus {
+    background-color: var(--btn-hover-bg) !important;
+    border-color: var(--btn-hover-border) !important;
+    box-shadow: 0 0 0 3px rgba(108, 161, 127, 0.4); /* Add a custom focus border */
+}
+
 .card {
     width: 100%;
     max-width: 400px;
-    border: 1px solid #ccc;
-    border-radius: 12px; /* Borda arredondada para um visual mais suave */
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--card-box-shadow);
     transition: transform 0.3s ease-in-out;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Estilo do formulário dentro do card */
 .card form {
     padding: 20px;
 }
 
-/* Estilo do título do card */
 .card-title {
     font-size: 1.8em;
 }
 
-/* Estilo para a linha abaixo do título */
 .card-title.border-bottom {
-    border-color: #008bff; /* Cor azul para a linha */
-}
-
-/* Estilo para o botão de entrada */
-.btn-dark {
-    width: 100%;
+    border-color: var(--card-title-border);
 }
