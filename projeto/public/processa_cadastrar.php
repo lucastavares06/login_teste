@@ -26,11 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($stmtUsuario->rowCount() > 0) {
             $erro = urlencode("Este nome de usuário já está em uso. Escolha outro.");
-            header("Location: ../index.php?erro=$erro");
+            header("Location: ../index.php?pagina=cadastrar&erro=$erro");
             exit();
         } elseif ($stmtEmail->rowCount() > 0) {
             $erro = urlencode("Este e-mail já está em uso. Escolha outro.");
-            header("Location: ../index.php?erro=$erro");
+            header("Location: ../index.php?pagina=cadastrar&erro=$erro");
             exit();
         } else {
             // Insira o novo usuário no banco de dados
@@ -48,17 +48,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Execute a consulta
             if ($stmt->execute()) {
                 $mensagem = urlencode("Cadastro realizado com sucesso, $nome!");
-                header("Location: ../index.php?mensagem=$mensagem");
+                header("Location: ../index.php?pagina=cadastrar&mensagem=$mensagem");
                 exit();
             } else {
                 $erro = urlencode("Erro durante o cadastro");
-                header("Location: ../index.php?erro=$erro");
+                header("Location: ../index.php?pagina=cadastrar&erro=$erro");
                 exit();
             }
         }
     } catch (PDOException $e) {
         $erro = urlencode("Erro na consulta: " . $e->getMessage());
-        header("Location: ../index.php?erro=$erro");
+        header("Location: ../index.php?pagina=cadastrar&erro=$erro");
         exit();
     }
 }
