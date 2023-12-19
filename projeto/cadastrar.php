@@ -4,6 +4,29 @@
             <div class="card">
                 <div class="card-body">
                     <h2 class="card-title text-center mb-4 border-bottom pb-3">Cadastrar</h2>
+
+                    <?php
+                    if (isset($_GET['erro'])) {
+                        $erro = urldecode($_GET['erro']);
+                    ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo $erro; ?>
+                        </div>
+                    <?php
+                    }
+
+                    if (isset($_GET['mensagem'])) {
+                        $mensagem = urldecode($_GET['mensagem']);
+                    ?>
+                        <div class="alert alert-success" role="alert">
+                            <?php echo $mensagem; ?>
+                            <br>
+                            <a href="?pagina=login" class="alert-link">Clique aqui para fazer login</a>
+                        </div>
+                    <?php
+                    }
+                    ?>
+
                     <form action="public/processa_cadastrar.php" method="post">
                         <div class="mb-3">
                             <label for="nome" class="form-label">Nome Completo:</label>
