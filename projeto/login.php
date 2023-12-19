@@ -4,6 +4,18 @@
             <div class="card">
                 <div class="card-body">
                     <h2 class="card-title text-center mb-4 border-bottom pb-3">Login</h2>
+
+                    <?php
+                    if (isset($_GET['erro'])) {
+                        $erro = urldecode($_GET['erro']);
+                    ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo $erro; ?>
+                        </div>
+                    <?php
+                    }
+                    ?>
+
                     <form action="public/processa_login.php" method="post">
                         <div class="mb-3">
                             <label for="usuario" class="form-label">Usuário:</label>
