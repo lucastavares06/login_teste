@@ -5,18 +5,9 @@
                 <div class="card-body">
                     <h2 class="card-title text-center mb-4 border-bottom pb-3">Login</h2>
 
-                    <?php
-                    if (isset($_GET['erro'])) {
-                        $erro = urldecode($_GET['erro']);
-                    ?>
-                        <div class="alert alert-danger" role="alert">
-                            <?php echo $erro; ?>
-                        </div>
-                    <?php
-                    }
-                    ?>
-
                     <form action="public/processa_login.php" method="post">
+                        <?= isset($_GET['erro']) ? '<div class="alert alert-danger" role="alert">' . htmlspecialchars(urldecode($_GET['erro'])) . '</div>' : '' ?>
+                        
                         <div class="mb-3">
                             <label for="usuario" class="form-label">Usuário:</label>
                             <div class="input-group">
@@ -24,6 +15,7 @@
                                 <span class="input-group-text"><i class="fa fa-user"></i></span>
                             </div>
                         </div>
+                        
                         <div class="mb-3 border-bottom pb-4">
                             <label for="senha" class="form-label">Senha:</label>
                             <div class="input-group">
@@ -31,6 +23,7 @@
                                 <span class="input-group-text"><i class="fa fa-lock"></i></span>
                             </div>
                         </div>
+                        
                         <div class="mt-3">
                             <button type="submit" class="btn btn-dark">Entrar</button>
                         </div>
