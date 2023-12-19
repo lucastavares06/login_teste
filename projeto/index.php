@@ -1,50 +1,9 @@
 <?php
 include 'config/config.php';
-?>
 
-<?php
 // Iniciar a sessão
 session_start();
-
-// Verificar se há uma mensagem de erro na URL
-if (isset($_GET['erro'])) {
-    $erro = urldecode($_GET['erro']);
 ?>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            Swal.fire({
-                icon: 'error',
-                title: 'Erro',
-                text: '<?php echo $erro; ?>',
-                timer: 3000,
-                showConfirmButton: false
-            });
-        });
-    </script>
-<?php
-}
-
-// Verificar se há uma mensagem de sucesso na URL
-if (isset($_GET['mensagem'])) {
-    $mensagem = urldecode($_GET['mensagem']);
-?>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            Swal.fire({
-                icon: 'success',
-                title: 'Sucesso',
-                text: '<?php echo $mensagem; ?> ',
-                timer: 3000,
-                showConfirmButton: false
-            });
-        });
-    </script>
-<?php
-}
-?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -92,6 +51,45 @@ if (isset($_GET['mensagem'])) {
     <!-- Bootstrap JavaScript (popper.js is no longer required in Bootstrap 5) -->
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <?php
+    // Verificar se há uma mensagem de erro na URL
+    if (isset($_GET['erro'])) {
+        $erro = urldecode($_GET['erro']);
+    ?>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: '<?php echo $erro; ?>',
+                    timer: 3000,
+                    showConfirmButton: false
+                });
+            });
+        </script>
+    <?php
+    }
+
+    // Verificar se há uma mensagem de sucesso na URL
+    if (isset($_GET['mensagem'])) {
+        $mensagem = urldecode($_GET['mensagem']);
+    ?>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Sucesso',
+                    text: '<?php echo $mensagem; ?> ',
+                    timer: 3000,
+                    showConfirmButton: false
+                });
+            });
+        </script>
+    <?php
+    }
+    ?>
 </body>
 
 </html>
