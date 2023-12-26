@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $_POST['usuario'];
     $senha = $_POST['senha'];
 
-    $sql = "SELECT * FROM usuario WHERE usuario = :usuario";
+    $sql = "SELECT id, nome, usuario, email, senha FROM usuario WHERE usuario = :usuario";
 
     try {
         $stmt = $conexao->prepare($sql);
@@ -23,24 +23,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['usuario_usuario'] = $result['usuario'];
                 $_SESSION['usuario_email'] = $result['email'];
 
-                header('Location: ../private/app/dashboard.php');
-                exit();
+                // Verificar se o usuário está autenticado antes de redirecionar
+                if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['usuario_id'])) {
+                    header('Location: ../private/app/dashboard.php');
+                    exit();
+                } else {
+                    // Se o usuário não estiver autenticado, redirecione para a página de login
+                    header('Location: ../index.php?pagina=login');
+                    exit();
+                }
             } else {
-                // Senha incorreta - Redireciona para a página de login com a mensagem de erro
+                // Senha incorreta
                 $erro = urlencode('Senha incorreta.');
-                header("Location: ../index.php?pagina=login&erro=$erro");
-                exit();
             }
         } else {
-            // Usuário não encontrado - Redireciona para a página de login com a mensagem de erro
+            // Usuário não encontrado
             $erro = urlencode('Usuário não encontrado.');
-            header("Location: ../index.php?pagina=login&erro=$erro");
-            exit();
         }
     } catch (PDOException $e) {
-        // Erro na consulta - Redireciona para a página de login com a mensagem de erro
-        $erro = urlencode("Erro na consulta: " . $e->getMessage());
-        header("Location: ../index.php?pagina=login&erro=$erro");
-        exit();
+        // Erro na consulta
+        $erro = urlencode("Erro na consulta.");
+        // Registre detalhes do erro em logs
+        error_log("Erro na autenticação: " . $e->getMessage(), 0);
     }
+
+    // Redirecionar para a página de login com a mensagem de erro
+    header("Location: ../index.php?pagina=login&erro=$erro");
+    exit();
 }
