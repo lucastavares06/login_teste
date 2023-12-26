@@ -16,7 +16,6 @@
                         <strong>Email:</strong>
                         <p class="form-control-plaintext"><?php echo $usuarioEmail; ?></p>
                     </div>
-                    <!-- Adicione outros campos do perfil conforme necessário -->
                 </div>
             </div>
         </div>
